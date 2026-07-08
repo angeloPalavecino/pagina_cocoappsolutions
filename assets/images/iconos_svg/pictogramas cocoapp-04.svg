@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #000;
+        stroke-width: 25px;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-2 {
+        stroke-dasharray: 23;
+      }
+
+      .cls-2, .cls-3 {
+        stroke: #ffffff;
+        stroke-width: 20px;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M672.12,605.5c0,.44-.35.79-.79.79h-262.67c-.44,0-.79-.35-.79-.79"/>
+  <path class="cls-1" d="M407.88,605.5v-184.41c0-.44.35-.79.79-.79h262.67"/>
+  <path class="cls-1" d="M398.58,651.25c-24.11,0-43.84-19.73-43.84-43.84v-1.58c0-.32.26-.59.59-.59h369.35c.32,0,.59.26.59.59v1.58c0,24.11-19.73,43.84-43.84,43.84h-282.84"/>
+  <polyline class="cls-3" points="589.2 548.53 620.2 517.52 589.2 486.51"/>
+  <polyline class="cls-3" points="528.19 548.53 559.2 517.52 528.19 486.51"/>
+  <polyline class="cls-3" points="467.19 548.53 498.19 517.52 467.19 486.51"/>
+  <line class="cls-2" x1="672.12" y1="460.02" x2="672.12" y2="571.54"/>
+</svg>

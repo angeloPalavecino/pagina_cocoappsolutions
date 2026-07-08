@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 25px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-1, .cls-3 {
+        stroke: #000;
+      }
+
+      .cls-2 {
+        stroke-dasharray: 36.74;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        stroke-width: 20px;
+      }
+
+      .cls-2, .cls-4 {
+        stroke: #ff9500;
+      }
+    </style>
+  </defs>
+  <g>
+    <path class="cls-3" d="M757.44,503.69c0,.3-.24.54-.54.54h-178.89c-.3,0-.54-.24-.54-.54"/>
+    <path class="cls-3" d="M577.47,503.69v-125.59c0-.3.24-.54.54-.54h178.89v126.67"/>
+    <path class="cls-3" d="M571.14,534.85c-16.42,0-29.86-13.44-29.86-29.86v-1.08c0-.22.18-.4.4-.4h251.55c.22,0,.4.18.4.4v1.08c0,16.42-13.44,29.86-29.86,29.86h-192.63"/>
+    <polyline class="cls-4" points="700.96 464.89 722.08 443.77 700.96 422.66"/>
+    <polyline class="cls-4" points="659.41 464.89 680.53 443.77 659.41 422.66"/>
+    <polyline class="cls-4" points="617.87 464.89 638.98 443.77 617.87 422.66"/>
+  </g>
+  <circle class="cls-1" cx="433.19" cy="447.68" r="72.02"/>
+  <g>
+    <path class="cls-1" d="M286.61,709.1c0-80.3,65.09-145.39,145.39-145.39,11.91,0,23.48,1.43,34.56,4.13"/>
+    <path class="cls-2" d="M501.27,581.24c45.34,24.61,76.12,72.64,76.12,127.86"/>
+  </g>
+</svg>

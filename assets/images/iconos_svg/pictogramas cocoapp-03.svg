@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 8.44px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-1, .cls-2, .cls-4 {
+        stroke: #ffffff;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        fill: none;
+      }
+
+      .cls-3 {
+        stroke: #000;
+        stroke-width: 25px;
+      }
+
+      .cls-4 {
+        stroke-dasharray: 26.42;
+        stroke-width: 19.96px;
+      }
+    </style>
+  </defs>
+  <polyline class="cls-2" points="425.36 460.66 474.1 454.49 486.43 518.52 559.79 463.41"/>
+  <path class="cls-3" d="M605.6,474.21c0,63.83-51.75,115.58-115.58,115.58s-115.58-51.75-115.58-115.58,51.75-115.58,115.58-115.58"/>
+  <path class="cls-4" d="M513.31,360.98c45.23,9.26,80.84,44.93,89.99,90.2"/>
+  <line class="cls-3" x1="558.97" y1="573.13" x2="597" y2="610.7"/>
+  <rect class="cls-3" x="563.73" y="635.8" width="155.48" height="39.66" rx=".81" ry=".81" transform="translate(651.49 -261.56) rotate(45)"/>
+  <circle class="cls-1" cx="412.62" cy="461.94" r="13.51"/>
+  <circle class="cls-1" cx="474.1" cy="454.49" r="13.51"/>
+  <circle class="cls-1" cx="486.43" cy="518.52" r="13.51"/>
+  <circle class="cls-1" cx="559.79" cy="463.41" r="13.51"/>
+</svg>
