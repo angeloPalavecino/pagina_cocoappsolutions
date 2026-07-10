@@ -267,4 +267,5 @@ document.addEventListener('DOMContentLoaded', () => {
             staggerObserver.observe(container);
         });
     });
+
 });

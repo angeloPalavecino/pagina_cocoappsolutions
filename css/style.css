@@ -435,18 +435,49 @@ p {
     transform: translateX(-50%);
     width: 90%;
     max-width: 1100px;
-    height: 80px;
+    min-height: 80px;
     background-color: #fff;
     border-radius: 40px;
     z-index: 10;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.hero-pill .section-title {
+    padding-bottom: 0;
+}
+
+.hero-pill .section-title::after {
+    display: none;
+}
+
+.hero-subtitle-bar {
+    position: relative;
+    padding-bottom: 15px;
+    display: inline-block;
+}
+
+.hero-subtitle-bar::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 4px;
+    background: linear-gradient(90deg, #1A4D2E 0%, var(--primary-orange) 100%);
+    border-radius: 2px;
 }
 
 /* ==========================================================================
    Soluciones Section
    ========================================================================== */
 .soluciones-section {
-    padding: 120px 0 80px;
+    padding: 70px 0 80px;
     background-color: #fbfdfc; /* Off-white tint to match branding */
 }
 
@@ -1318,16 +1349,18 @@ p {
 .servicios-areas-band {
     background: #fff;
     border-radius: 60px;
-    padding: 15px 25px 15px 40px;
+    padding: 0 40px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 60px;
     box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    margin: -50px auto 0;
+    margin: -60px auto 0;
     position: relative;
     z-index: 10;
     width: 95%;
-    max-width: 1200px;
+    max-width: 1100px;
+    height: 120px;
 }
 .areas-title {
     display: flex;
@@ -1345,7 +1378,7 @@ p {
 .custom-long-arrow {
     position: relative;
     width: 25px; /* Space before the text */
-    height: 2px;
+    height: 3px;
 }
 .custom-long-arrow::before {
     content: '';
@@ -1353,7 +1386,7 @@ p {
     right: 0;
     top: 0;
     width: 50vw; /* Extends far to the left, definitely off-screen */
-    height: 2px;
+    height: 3px;
     background-color: var(--primary-orange);
     z-index: 20; /* Ensure it stays on top of the pill's shadow/border */
 }
@@ -1361,11 +1394,11 @@ p {
     content: '';
     position: absolute;
     right: 0;
-    top: -5px; /* Adjust so the point aligns with the 2px line */
+    top: -5px; /* Adjust so the point aligns with the 3px line */
     width: 12px;
     height: 12px;
-    border-top: 2px solid var(--primary-orange);
-    border-right: 2px solid var(--primary-orange);
+    border-top: 3px solid var(--primary-orange);
+    border-right: 3px solid var(--primary-orange);
     transform: rotate(45deg);
     z-index: 20;
 }
@@ -2394,6 +2427,7 @@ p {
         padding: 20px 30px;
         flex-wrap: wrap;
         gap: 15px;
+        height: auto;
     }
     .custom-long-arrow {
         display: none;
@@ -2812,6 +2846,7 @@ p {
         text-align: center;
         padding: 30px 20px;
         gap: 20px;
+        height: auto;
     }
     .custom-long-arrow {
         display: none;
