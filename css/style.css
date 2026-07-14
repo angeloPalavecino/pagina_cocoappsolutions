@@ -60,6 +60,7 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
+    padding-top: 80px;
 }
 
 a {
@@ -247,14 +248,14 @@ p {
     z-index: 1;
 }
 
-.slide::before {
+.slide.needs-gradient::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(to right, rgba(17,124,138,0.65) 0%, rgba(17,124,138,0) 100%);
     z-index: 1;
 }
 
@@ -334,8 +335,8 @@ p {
     justify-content: flex-end;
 }
 
-.slide-right::before {
-    background: linear-gradient(to left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+.slide.slide-right.needs-gradient::before {
+    background: linear-gradient(to left, rgba(17,124,138,0.65) 0%, rgba(17,124,138,0) 100%);
 }
 
 .slide-right .hero-content-wrapper {
@@ -956,20 +957,14 @@ p {
    ========================================================================== */
 .nosotros-hero {
     position: relative;
-    padding: 180px 0 150px;
-    background-image: url('../assets/images/hero_nosotros_bg.png');
+    padding: 160px 0 200px;
+    background-image: url('../assets/images/BANNER WEB-NOSOTROS.png');
     background-size: cover;
     background-position: center center;
     color: var(--text-dark);
 }
 
-.nosotros-hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to right, rgba(255, 149, 0, 1) 0%, rgba(255, 149, 0, 0.9) 45%, rgba(255, 149, 0, 0) 80%);
-    z-index: 1;
-}
+
 
 .nosotros-hero .container {
     position: relative;
@@ -1023,7 +1018,7 @@ p {
 /* Timeline Section */
 .timeline-section {
     background: linear-gradient(to right, #1FA2B8 0%, #0A5C66 100%);
-    padding: 30px 0 100px; /* Add some top padding so text isn't stuck to the wave */
+    padding: 20px 0 100px;
     color: #fff;
     position: relative;
 }
@@ -1052,63 +1047,111 @@ p {
     font-weight: 800;
 }
 
-.timeline-path {
+/* ---- Serpentine Timeline ---- */
+.timeline-serpentine {
     flex: 2;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    grid-template-rows: repeat(6, auto);
     position: relative;
+    row-gap: 0;
+    column-gap: 0;
 }
 
-.timeline-step {
-    flex: 1;
-    text-align: center;
-    position: relative;
-    padding: 0 10px;
-}
-
-.timeline-step:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    top: 20px; /* Vertically centered relative to the 60px icon box */
-    right: -25px; /* Pull it right to span the gap between columns */
-    width: 50px;
-    height: 20px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 20'%3E%3Cpath d='M0 10h45M35 2l10 8-10 8' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: 2;
-}
-
-.timeline-step:nth-child(3)::after {
-    /* The arrow before the final "Futuro" step is orange */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 20'%3E%3Cpath d='M0 10h45M35 2l10 8-10 8' fill='none' stroke='%23ff9500' stroke-width='2' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E");
-}
-
-.timeline-icon {
-    width: 60px;
+/* Individual curved arrows in the middle column */
+.serp-arrow {
+    width: 100%;
     height: 60px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    align-self: center;
+    margin-top: -70px;
+    margin-bottom: -70px;
+}
+
+/* Arrow from right column to left column */
+.serp-arrow-r2l {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50' preserveAspectRatio='none'%3E%3Cpath d='M90 5 L10 45' fill='none' stroke='%23FF9500' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M18 33 L10 45 L25 46' fill='none' stroke='%23FF9500' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+/* Arrow from left column to right column */
+.serp-arrow-l2r {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50' preserveAspectRatio='none'%3E%3Cpath d='M10 5 L90 45' fill='none' stroke='%23FF9500' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M82 33 L90 45 L75 46' fill='none' stroke='%23FF9500' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+/* Each node: circle + text in a flex row */
+.serp-node {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    z-index: 1;
+    padding: 0;
+}
+
+/* Right-side items go in column 3 */
+.serp-node-right {
+    grid-column: 3;
+    margin-top: -35px;
+}
+
+/* Left-side items go in column 1 */
+.serp-node-left {
+    grid-column: 1;
+    justify-content: flex-end;
+    margin-top: -35px;
+}
+
+/* Circle icon */
+.serp-circle {
+    width: 75px;
+    height: 75px;
+    min-width: 75px;
     background-color: #fff;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 15px;
-    font-size: 1.5rem;
-    color: var(--text-dark);
-    border: 2px solid transparent;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15),
+                0 0 30px rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 2;
 }
 
-.timeline-step h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+.serp-circle-future {
+    outline: 2px solid var(--primary-orange);
+    outline-offset: 4px;
+}
+
+.serp-circle .nosotros-icon {
+    width: 80px;
+    height: auto;
+    transform: scale(1.8);
+}
+
+/* Text */
+.serp-text h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
     color: #fff;
+    margin-bottom: 5px;
 }
 
-.timeline-step p {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.8);
+.serp-text p {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+    max-width: 210px;
+}
+
+/* Left items: text should be right-aligned */
+.serp-node-left .serp-text {
+    text-align: right;
+}
+
+.serp-node-left .serp-text p {
+    margin-left: auto;
 }
 
 /* Section Title Band */
@@ -1321,9 +1364,9 @@ p {
 
 /* Hero Section */
 .servicios-hero {
-    background: linear-gradient(90deg, rgba(17,124,138,0.95) 0%, rgba(17,124,138,0.2) 100%), url('../assets/images/hero_servicios_bg.png') center/cover;
+    background: url('../assets/images/BANNER WEB-SERVICIOS.png') center top/cover;
     background-color: #117C8A; /* Fallback color */
-    padding: 100px 0 120px;
+    padding: 80px 0 130px;
     color: #fff;
 }
 .servicios-hero .subtitle {
@@ -1592,18 +1635,12 @@ p {
 
 .casos-hero {
     position: relative;
-    background-image: url('../assets/images/hero_casos_bg.png');
+    background-image: url('../assets/images/BANNER WEB-CASOS DE EXITO.png');
     background-size: cover;
     background-position: center;
-    padding: 150px 0 100px;
+    padding: 70px 0 100px;
 }
-.casos-hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%);
-    z-index: 1;
-}
+
 .casos-hero .container {
     position: relative;
     z-index: 2;
@@ -1741,8 +1778,8 @@ p {
 .caso-client-logo {
     position: relative;
     z-index: 2;
-    max-width: 80%;
-    max-height: 100px;
+    max-width: 95%;
+    max-height: 180px;
     filter: brightness(0) invert(1);
 }
 .caso-content-new {
@@ -1880,18 +1917,11 @@ p {
 /* Hero Contacto */
 .contacto-hero {
     background-color: var(--light-bg);
-    background-image: url('../assets/images/hero_contacto_bg.png');
+    background-image: url('../assets/images/BANNER WEB-CONTACTO.png');
     background-size: cover;
     background-position: center;
     position: relative;
-    padding: 180px 0 150px;
-}
-.contacto-hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 35%, rgba(255,255,255,0) 65%);
-    z-index: 1;
+    padding: 100px 0 150px;
 }
 .contacto-hero .container {
     position: relative;
@@ -2373,14 +2403,8 @@ p {
         flex-direction: column;
         gap: 30px;
     }
-    .timeline-path {
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 30px;
-    }
-    .timeline-step {
-        flex: 0 0 calc(50% - 20px);
+    .timeline-serpentine {
+        grid-template-columns: 1fr 1fr;
     }
 
     /* Valores */
@@ -2789,11 +2813,23 @@ p {
         flex-direction: column;
         gap: 30px;
     }
-    .timeline-path {
-        flex-direction: column;
-        gap: 20px;
+    .timeline-serpentine {
+        grid-template-columns: 1fr;
     }
-    .timeline-step:not(:last-child)::after {
+    .serp-node-right,
+    .serp-node-left {
+        grid-column: 1;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .serp-node-left .serp-text,
+    .serp-node-right .serp-text {
+        text-align: center;
+    }
+    .serp-node-left .serp-text p {
+        margin: 0 auto;
+    }
+    .serp-line-svg {
         display: none;
     }
     .equipo-grid {

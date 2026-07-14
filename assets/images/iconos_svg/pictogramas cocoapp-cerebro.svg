@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 25px;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-1, .cls-3 {
+        stroke: #000;
+      }
+
+      .cls-2 {
+        stroke: #ff9500;
+        stroke-dasharray: 26.42;
+        stroke-width: 20px;
+      }
+
+      .cls-3 {
+        stroke-width: 20px;
+      }
+    </style>
+  </defs>
+  
+  <g transform="translate(270, 270) scale(0.5)">
+    <!-- Center division -->
+    <line class="cls-1" x1="540" y1="200" x2="540" y2="800" />
+    
+    <!-- Left hemisphere outline (Black) -->
+    <path class="cls-1" d="M 540 200 C 400 150 250 250 250 400 C 150 450 150 600 250 650 C 250 800 400 850 540 800" />
+    
+    <!-- Left inner folds -->
+    <path class="cls-1" d="M 540 300 C 450 300 350 350 350 450" />
+    <path class="cls-1" d="M 540 450 C 400 450 300 550 400 650" />
+    <path class="cls-1" d="M 540 600 C 450 600 400 700 540 700" />
+    
+    <!-- Right hemisphere outline (Orange dashed) -->
+    <path class="cls-2" d="M 540 200 C 680 150 830 250 830 400 C 930 450 930 600 830 650 C 830 800 680 850 540 800" />
+    
+    <!-- Right inner folds (Black) -->
+    <path class="cls-1" d="M 540 300 C 630 300 730 350 730 450" />
+    <path class="cls-1" d="M 540 450 C 680 450 780 550 680 650" />
+    <path class="cls-1" d="M 540 600 C 630 600 680 700 540 700" />
+  </g>
+</svg>

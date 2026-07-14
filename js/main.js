@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(() => {
             currentSlide = (currentSlide + 1) % slides.length;
             showSlide(currentSlide);
-        }, 5000);
+        }, 8000);
     }
 
     // 4. Client Logos Slider
