@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressBar = document.getElementById('scrollProgressBar');
     if (progressBar) {
         const updateProgress = () => {
-            const scrollTop    = window.scrollY;
-            const docHeight    = document.documentElement.scrollHeight - window.innerHeight;
-            const scrolled     = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
             progressBar.style.width = scrolled + '%';
         };
         window.addEventListener('scroll', updateProgress, { passive: true });
@@ -16,13 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('.header');
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
-    
+
     // Toggle mobile menu
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active');
             navLinks.classList.toggle('active');
-            
+
             // Transform icon between bars and xmark
             const icon = menuToggle.querySelector('i');
             if (menuToggle.classList.contains('active')) {
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const leftArrow = document.querySelector('.prev-arrow');
         const rightArrow = document.querySelector('.next-arrow');
         const logos = logosTrack.querySelectorAll('.client-logo-img');
-        
+
         if (leftArrow && rightArrow && logos.length > 0) {
             let currentTranslate = 0;
             const logoWidth = 280; // approx width (230) + gap (50)
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const updateArrows = (maxTranslate) => {
                 leftArrow.style.opacity = currentTranslate === 0 ? '0.3' : '1';
                 leftArrow.style.pointerEvents = currentTranslate === 0 ? 'none' : 'auto';
-                
+
                 rightArrow.style.opacity = currentTranslate >= maxTranslate ? '0.3' : '1';
                 rightArrow.style.pointerEvents = currentTranslate >= maxTranslate ? 'none' : 'auto';
             };
@@ -135,12 +135,12 @@ document.addEventListener('DOMContentLoaded', () => {
             rightArrow.addEventListener('click', () => {
                 const maxTranslate = getMaxTranslate();
                 currentTranslate += logoWidth;
-                
+
                 // Cap at the maximum possible translation so we never see empty space
                 if (currentTranslate > maxTranslate) {
                     currentTranslate = maxTranslate;
                 }
-                
+
                 logosTrack.style.transform = `translateX(-${currentTranslate}px)`;
                 updateArrows(maxTranslate);
             });
@@ -148,16 +148,16 @@ document.addEventListener('DOMContentLoaded', () => {
             leftArrow.addEventListener('click', () => {
                 const maxTranslate = getMaxTranslate();
                 currentTranslate -= logoWidth;
-                
+
                 // Cap at 0 so we never scroll past the beginning
                 if (currentTranslate < 0) {
                     currentTranslate = 0;
                 }
-                
+
                 logosTrack.style.transform = `translateX(-${currentTranslate}px)`;
                 updateArrows(maxTranslate);
             });
-            
+
             // Re-evaluate bounds on window resize
             window.addEventListener('resize', () => {
                 const maxTranslate = getMaxTranslate();
@@ -267,5 +267,57 @@ document.addEventListener('DOMContentLoaded', () => {
             staggerObserver.observe(container);
         });
     });
+    const formContacto = document.getElementById("formcontacto");
+    if (formContacto) {
+        formContacto.addEventListener("submit", function (e) {
+            // Evita que la página se recargue
+            e.preventDefault();
 
+            // Cambia el texto del botón para indicar que está cargando
+            const btnSubmit = document.getElementById("button-submit-contacto");
+            const textoOriginal = btnSubmit.textContent;
+            btnSubmit.textContent = "Enviando...";
+            btnSubmit.disabled = true;
+
+            // Recolecta todos los datos del formulario
+            const formData = new FormData(formContacto);
+            const turnstileResponse = formData.get("cf-turnstile-response");
+
+            if (!turnstileResponse) {
+                alert("Por favor, espera a que se complete la verificación de seguridad.");
+                return; // Detiene el envío
+            }
+            // Reemplaza "procesar.php" con el nombre real de tu archivo PHP
+            fetch("contacto.php", {
+                method: "POST",
+                body: formData
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Error en la red al intentar enviar el formulario");
+                    }
+                    return response.json(); // Usa .json() si tu PHP devuelve un JSON
+                })
+                .then(data => {
+                    alert(data.mensaje);
+                    if (data.status === 200) {
+                        formContacto.reset();
+                        // Reiniciar el widget de Turnstile para futuros envíos
+                        if (typeof turnstile !== 'undefined') {
+                            turnstile.reset();
+                        }
+                    }
+                })
+                .catch(error => {
+                    // Aquí manejas los errores
+                    console.error("Error:", error);
+                    alert("Hubo un problema al enviar tu mensaje. Por favor, intenta de nuevo.");
+                })
+                .finally(() => {
+                    // Restaura el botón a su estado original
+                    btnSubmit.textContent = textoOriginal;
+                    btnSubmit.disabled = false;
+                });
+        });
+    }
 });
