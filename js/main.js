@@ -267,27 +267,47 @@ document.addEventListener('DOMContentLoaded', () => {
             staggerObserver.observe(container);
         });
     });
+
     const formContacto = document.getElementById("formcontacto");
     if (formContacto) {
+        const inputNombre = formContacto.querySelector('input[name="nombre"]');
+        const inputTelefono = formContacto.querySelector('input[name="telefono"]');
+        if (inputNombre) {
+            inputNombre.addEventListener("input", function (e) {
+                e.target.value = e.target.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '');
+            });
+        }
+
+        if (inputTelefono) {
+            inputTelefono.addEventListener("input", function (e) {
+                e.target.value = e.target.value.replace(/[^0-9+]/g, '');
+            });
+        }
+
         formContacto.addEventListener("submit", function (e) {
-            // Evita que la página se recargue
             e.preventDefault();
 
-            // Cambia el texto del botón para indicar que está cargando
             const btnSubmit = document.getElementById("button-submit-contacto");
             const textoOriginal = btnSubmit.textContent;
-            btnSubmit.textContent = "Enviando...";
-            btnSubmit.disabled = true;
 
-            // Recolecta todos los datos del formulario
+
             const formData = new FormData(formContacto);
             const turnstileResponse = formData.get("cf-turnstile-response");
 
             if (!turnstileResponse) {
-                alert("Por favor, espera a que se complete la verificación de seguridad.");
-                return; // Detiene el envío
+                Swal.fire({
+                    title: "Atención",
+                    text: "Por favor, espera a que se complete la verificación de seguridad.",
+                    icon: "warning",
+                    confirmButtonText: "Entendido",
+                    confirmButtonColor: "#f97316"
+                });
+
+                return;
             }
-            // Reemplaza "procesar.php" con el nombre real de tu archivo PHP
+            
+            btnSubmit.textContent = "Enviando...";
+            btnSubmit.disabled = true;
             fetch("contacto.php", {
                 method: "POST",
                 body: formData
@@ -296,25 +316,34 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (!response.ok) {
                         throw new Error("Error en la red al intentar enviar el formulario");
                     }
-                    return response.json(); // Usa .json() si tu PHP devuelve un JSON
+                    return response.json();
                 })
                 .then(data => {
-                    alert(data.mensaje);
+                    Swal.fire({
+                        title: "¡Mensaje enviado!",
+                        text: data.mensaje,
+                        icon: "success",
+                        confirmButtonText: "Entendido",
+                        confirmButtonColor: "#f97316" // Un tono naranja similar al de tu marca
+                    });
                     if (data.status === 200) {
                         formContacto.reset();
-                        // Reiniciar el widget de Turnstile para futuros envíos
                         if (typeof turnstile !== 'undefined') {
                             turnstile.reset();
                         }
                     }
                 })
                 .catch(error => {
-                    // Aquí manejas los errores
                     console.error("Error:", error);
-                    alert("Hubo un problema al enviar tu mensaje. Por favor, intenta de nuevo.");
+                    Swal.fire({
+                        title: "Ocurrió un problema",
+                        text: "No pudimos enviar tu mensaje en este momento. Por favor, intenta más tarde.",
+                        icon: "error",
+                        confirmButtonText: "Cerrar",
+                        confirmButtonColor: "#f97316"
+                    });
                 })
                 .finally(() => {
-                    // Restaura el botón a su estado original
                     btnSubmit.textContent = textoOriginal;
                     btnSubmit.disabled = false;
                 });
