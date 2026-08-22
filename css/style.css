@@ -303,8 +303,8 @@ p {
 /* Arrow at the end of top line */
 .hero-border-arrow {
     position: absolute;
-    top: -11px;
-    left: 35%;
+    top: -8.5px;
+    left: calc(35% - 20px);
     width: 20px;
     height: 20px;
     border-top: 3px solid var(--primary-orange);
@@ -330,7 +330,7 @@ p {
     bottom: 0;
     right: 0;
     width: 40px;
-    height: 50%;
+    height: calc(50% - 11px);
     border-bottom: 3px solid var(--primary-orange);
     border-right: 3px solid var(--primary-orange);
     border-radius: 0 0 40px 0;
@@ -340,7 +340,7 @@ p {
 .hero-border-circle {
     position: absolute;
     bottom: calc(50% - 11px);
-    right: -11px;
+    right: -9.5px;
     width: 22px;
     height: 22px;
     border: 3px solid var(--primary-orange);
@@ -374,7 +374,7 @@ p {
 
 .slide-right .hero-border-arrow {
     left: auto;
-    right: 35%;
+    right: calc(35% - 20px);
     border-right: none;
     border-left: 3px solid var(--primary-orange);
     transform: rotate(-45deg);
@@ -398,7 +398,7 @@ p {
 
 .slide-right .hero-border-circle {
     right: auto;
-    left: -11px;
+    left: -9.5px;
 }
 
 .slide-right .btn-primary {
@@ -1030,9 +1030,6 @@ p {
 .nosotros-hero .container {
     position: relative;
     z-index: 2;
-    max-width: 600px;
-    margin-left: 8%;
-    /* Pushed to the right */
 }
 
 .nosotros-hero .subtitle {
@@ -1056,7 +1053,7 @@ p {
     color: #ffffff;
     font-size: 0.95rem;
     /* Reduced text size as requested */
-    max-width: 550px;
+    max-width: 600px;
     line-height: 1.6;
 }
 
@@ -1401,8 +1398,6 @@ p {
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     gap: 40px;
-    max-width: 1000px;
-    margin: 0 auto;
 }
 
 .equipo-member {
@@ -2149,18 +2144,17 @@ p {
 
 /* Opciones de Contacto */
 .contacto-opciones {
-    padding: 0 0 80px 0;
+    padding: 1px 0 80px 0;
     background: transparent;
     /* Let wrapper gradient show through */
     position: relative;
     z-index: 5;
-    margin-top: -60px;
 }
 
 .contacto-pill-wrapper {
     width: 95%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: -54px auto 0;
     position: relative;
     display: flex;
     justify-content: flex-end;
@@ -2209,8 +2203,8 @@ p {
     position: absolute;
     right: 100%;
     /* Start exactly from the left edge of pill-left (where chevron is) */
-    margin-right: -10px;
-    /* Overlap slightly with the chevron */
+    margin-right: -18px;
+    /* Overlap perfectly with the chevron tip */
     top: 50%;
     transform: translateY(-50%);
     width: 100vw;

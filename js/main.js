@@ -132,6 +132,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // Initialize arrows state
             updateArrows(getMaxTranslate());
 
+            // Re-evaluate after all images are loaded (fixes bug on first load when images have 0 width)
+            window.addEventListener('load', () => {
+                updateArrows(getMaxTranslate());
+            });
+
             rightArrow.addEventListener('click', () => {
                 const maxTranslate = getMaxTranslate();
                 currentTranslate += logoWidth;
