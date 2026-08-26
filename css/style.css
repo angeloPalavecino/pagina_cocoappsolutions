@@ -1291,7 +1291,7 @@ p {
 }
 
 .mision-card> :nth-child(4) {
-    text-align: justify;
+    text-align: center;
 }
 
 .valores-header {
