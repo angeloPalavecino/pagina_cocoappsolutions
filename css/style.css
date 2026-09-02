@@ -2326,7 +2326,7 @@ p {
 
 .card-link {
     font-weight: 700;
-    text-decoration: none;
+    text-decoration: underline;
     font-size: 0.75rem;
     /* Smaller link */
     word-break: break-word;
@@ -2335,7 +2335,7 @@ p {
 }
 
 .card-link:hover {
-    text-decoration: underline;
+    opacity: 0.8;
 }
 
 /* Formulario Section */
