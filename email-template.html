@@ -1,0 +1,496 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Confirmación de Contacto - CocoApp Solutions</title>
+
+    <!-- Google Fonts (Poppins como respaldo moderno de alta compatibilidad) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+        /* Declaración de fuentes Parabolica según especificaciones de diseño */
+        @font-face {
+            font-family: 'Parabolica';
+            src: url('assets/fonts/Parabolica/fonnts.com-Parabolica_Regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Parabolica';
+            src: url('assets/fonts/Parabolica/fonnts.com-Parabolica_Bold.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Parabolica';
+            src: url('assets/fonts/Parabolica/fonnts.com-Parabolica_Regular_Oblique.otf') format('opentype');
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Parabolica';
+            src: url('assets/fonts/Parabolica/fonnts.com-Parabolica_Black.otf') format('opentype');
+            font-weight: 900;
+            font-style: normal;
+        }
+
+        /* Normalización estándar para clientes de correo (Outlook, Gmail, Apple Mail) */
+        body, table, td, a {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        table, td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+            border-collapse: collapse;
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+            display: block;
+        }
+
+        body {
+            height: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            background-color: #EEF2F6;
+            font-family: 'Parabolica', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #2D3748;
+        }
+
+        a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        /* Contenedor principal con fondo FONDO 1.png en escritorio */
+        .email-container {
+            background-color: #FFFFFF;
+            background-image: url('assets/images/email/FONDO%201.png');
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: 100% 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+            border: 1px solid #E2E8F0;
+        }
+
+        /* Tarjeta de texto blanca (CUADRO TEXTO) debajo de la foto del especialista */
+        .email-card {
+            background-color: #FFFFFF !important;
+            border-radius: 24px !important;
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08), 0 3px 8px rgba(0, 0, 0, 0.03) !important;
+            border: 1px solid #EBEBEB !important;
+            position: relative !important;
+            z-index: 2 !important;
+        }
+
+        /* Flecha conectora naranja: más a la izquierda y anclada a la altura de 'Nuestro' */
+        .arrow-exact {
+            position: absolute;
+            right: 10px;
+            top: 118px;
+            width: 58px;
+            z-index: 15;
+            pointer-events: none;
+        }
+
+        /* Margen derecho del texto para no ser tapado por el círculo de la foto */
+        .card-text-wrapper {
+            padding-right: 48px;
+        }
+
+        /* Foto del especialista POR ENCIMA del panel de texto y más arriba hacia el encabezado */
+        .worker-wrapper {
+            margin-left: -65px;
+            margin-top: -38px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Onda solo visible en móvil */
+        .mobile-wave-container {
+            display: none;
+            max-height: 0px;
+            overflow: hidden;
+            mso-hide: all;
+        }
+
+        /* Adaptación Responsive para Móviles */
+        @media only screen and (max-width: 640px) {
+            .email-container {
+                width: 100% !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                background-image: none !important;
+                background-color: #FFFFFF !important;
+            }
+
+            .stack-column {
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
+            .card-text-wrapper {
+                padding-right: 0 !important;
+            }
+
+            .worker-column {
+                display: block !important;
+                width: 100% !important;
+                margin-top: 25px !important;
+                text-align: center !important;
+            }
+
+            .worker-wrapper {
+                margin-left: 0 !important;
+                margin-top: 0 !important;
+                margin: 0 auto !important;
+            }
+
+            .worker-img {
+                margin: 0 auto !important;
+                max-width: 270px !important;
+            }
+
+            .arrow-exact {
+                display: none !important;
+            }
+
+            .process-row {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: space-around !important;
+            }
+
+            .process-cell {
+                display: inline-block !important;
+                width: 48% !important;
+                margin-bottom: 16px !important;
+                box-sizing: border-box !important;
+                text-align: left !important;
+            }
+
+            .process-divider {
+                display: none !important;
+            }
+
+            .mobile-wave-container {
+                display: block !important;
+                max-height: none !important;
+                overflow: visible !important;
+                line-height: 0 !important;
+            }
+
+            .footer-cell-wrapper {
+                background: linear-gradient(95deg, #03625f 0%, #0d7a74 45%, #6a7428 85%, #947e1d 100%) !important;
+                border-radius: 0 !important;
+            }
+
+            .footer-table td {
+                display: block !important;
+                width: 100% !important;
+                text-align: center !important;
+                box-sizing: border-box !important;
+            }
+
+            .footer-line {
+                display: none !important;
+            }
+
+            .footer-link-cell {
+                margin-top: 14px !important;
+                text-align: center !important;
+            }
+
+            .header-padding {
+                padding: 30px 20px 10px 20px !important;
+            }
+
+            .body-padding {
+                padding: 10px 15px 20px 15px !important;
+            }
+
+            .card-inner-padding {
+                padding: 24px 18px !important;
+            }
+
+            .footer-padding {
+                padding: 25px 20px 30px 20px !important;
+            }
+
+            .title-hola, .title-nombre {
+                font-size: 28px !important;
+            }
+        }
+    </style>
+</head>
+
+<body style="margin: 0; padding: 30px 0; background-color: #EEF2F6; font-family: 'Parabolica', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+
+    <!-- Preheader oculto para clientes de correo -->
+    <div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: 'Parabolica', 'Poppins', sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
+        Hola Juan, gracias por contactar a Cocoapp Solutions. Hemos recibido tu solicitud.
+    </div>
+
+    <!-- Centered Outer Wrapper -->
+    <center>
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;">
+            <tr>
+                <td align="center" style="padding: 0 10px;">
+
+                    <!-- MAIN EMAIL CONTAINER (650px de ancho) -->
+                    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="650" class="email-container" style="max-width: 650px; width: 100%; background-color: #FFFFFF; border-radius: 24px; overflow: hidden; box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08); border: 1px solid #E2E8F0;">
+
+                        <!-- ==================== HEADER / LOGO ==================== -->
+                        <tr>
+                            <td class="header-padding" style="padding: 42px 42px 10px 42px;">
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <td align="left" valign="middle">
+                                            <a href="https://cocoappsolutions.com" target="_blank" style="text-decoration: none;">
+                                                <img src="assets/images/logo/logo.png" alt="Cocoapp Solutions" width="195" style="width: 195px; max-width: 100%; height: auto; display: block;" />
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <!-- ==================== HERO SECTION: TARJETA + ESPECIALISTA ==================== -->
+                        <tr>
+                            <td class="body-padding" style="padding: 10px 38px 20px 38px;">
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <!-- COLUMNA IZQUIERDA: TARJETA DE TEXTO (CUADRO BLANCO) -->
+                                        <td class="stack-column" width="370" valign="top" style="width: 370px; vertical-align: top; position: relative; z-index: 2;">
+                                            <div class="email-card" style="background-color: #FFFFFF; border-radius: 22px; box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08), 0 3px 8px rgba(0, 0, 0, 0.03); border: 1px solid #EBEBEB; padding: 28px 24px 24px 24px; position: relative;">
+                                                
+                                                <!-- FLECHA CONECTORA EXACTA SEGÚN MODELO (PICTOGRAMAS-11.png) -->
+                                                <div class="arrow-exact">
+                                                    <img src="assets/images/email/PICTOGRAMAS-11.png" alt="" width="58" style="width: 58px; height: auto; display: block;" />
+                                                </div>
+
+                                                <!-- Cabecera de la tarjeta: Título e Ícono de Sobre (PICTOGRAMAS-10.png) -->
+                                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tr>
+                                                        <td valign="top">
+                                                            <h1 class="title-hola" style="margin: 0; font-family: 'Parabolica', 'Poppins', sans-serif; font-size: 34px; font-weight: 700; color: #000000; line-height: 1.15;">Hola</h1>
+                                                            <!-- Nombre dinámico del cliente -->
+                                                            <h2 class="title-nombre" style="margin: 0 0 16px 0; font-family: 'Parabolica', 'Poppins', sans-serif; font-size: 34px; font-weight: 700; color: #FF9500; line-height: 1.15;">Juan Perez,</h2>
+                                                        </td>
+                                                        <td align="right" valign="top" width="55" style="width: 55px;">
+                                                            <img src="assets/images/email/PICTOGRAMAS-10.png" alt="Confirmación" width="46" height="46" style="width: 46px; height: 46px; display: block;" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+                                                <!-- Contenedor con margen derecho para no chocar con el círculo de la foto -->
+                                                <div class="card-text-wrapper">
+                                                    <!-- Cuerpo del mensaje según especificaciones de tipografía Parabolica -->
+                                                    <p style="margin: 0 0 14px 0; font-family: 'Parabolica', 'Poppins', sans-serif; font-size: 14.5px; line-height: 1.55; color: #222222; font-weight: 400;">
+                                                        Gracias por ponerte en contacto con <strong style="font-family: 'Parabolica', 'Poppins', sans-serif; font-weight: 700; color: #000000;">Cocoapp Solutions</strong>.
+                                                    </p>
+
+                                                    <p style="margin: 0 0 14px 0; font-family: 'Parabolica', 'Poppins', sans-serif; font-size: 14.5px; line-height: 1.55; color: #222222; font-weight: 400;">
+                                                        Te confirmamos que hemos recibido correctamente tu solicitud. <span style="font-family: 'Parabolica', 'Poppins', sans-serif; font-weight: 700; color: #FF9500;">Nuestro especialista revisará los antecedentes que nos proporcionaste</span> y se pondrá en contacto contigo para conocer más sobre tu requerimiento.
+                                                    </p>
+
+                                                    <p style="margin: 0 0 18px 0; font-family: 'Parabolica', 'Poppins', sans-serif; font-size: 14.5px; line-height: 1.55; color: #222222; font-weight: 400;">
+                                                        Agradecemos tu interés en Cocoapp Solutions y esperamos poder ayudarte a encontrar la solución que necesitas.
+                                                    </p>
+                                                </div>
+
+                                                <!-- Línea divisoria suave -->
+                                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin: 16px 0;">
+                                                    <tr>
+                                                        <td style="border-top: 1px solid #E2E8F0; font-size: 1px; line-height: 1px;">&nbsp;</td>
+                                                    </tr>
+                                                </table>
+
+                                                <!-- Despedida y Firma -->
+                                                <p style="margin: 0; font-family: 'Parabolica', 'Poppins', sans-serif; font-size: 15px; line-height: 1.4; color: #222222; font-weight: 400;">
+                                                    Saludos,
+                                                </p>
+                                                <p style="margin: 3px 0 0 0; font-family: 'Parabolica', 'Poppins', sans-serif; font-size: 16px; font-weight: 900; color: #FF9500;">
+                                                    Equipo Cocoapp Solutions.
+                                                </p>
+
+                                            </div>
+                                        </td>
+
+                                        <!-- COLUMNA DERECHA: FOTO DEL ESPECIALISTA (FOTO TRABAJADOR 2.png) POR ENCIMA DEL PANEL Y MÁS ARRIBA -->
+                                        <td class="worker-column" width="240" valign="top" align="right" style="width: 240px; vertical-align: top; text-align: right; position: relative; z-index: 10;">
+                                            <div class="worker-wrapper">
+                                                <img class="worker-img" src="assets/images/email/FOTO%20TRABAJADOR%202.png" alt="Martín Riaño - Ejecución Inteligente, Resultados Reales" width="270" style="width: 270px; max-width: 100%; height: auto; display: block; margin-left: auto;" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <!-- ==================== BARRA DE 4 PROCESOS ==================== -->
+                        <tr>
+                            <td style="padding: 10px 35px 25px 35px;">
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr class="process-row">
+                                        <!-- PROCESO 1: Escuchamos tus ideas (PICTOGRAMAS-06.png) -->
+                                        <td class="process-cell" align="center" valign="middle" style="padding: 4px 6px;">
+                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td valign="middle" style="padding-right: 8px;">
+                                                        <img src="assets/images/email/PICTOGRAMAS-06.png" alt="Escuchamos" width="34" style="width: 34px; height: auto; display: block;" />
+                                                    </td>
+                                                    <td valign="middle" align="left">
+                                                        <span style="font-family: 'Parabolica', 'Poppins', sans-serif; font-size: 11.5px; line-height: 1.25; color: #111827; font-weight: 500; display: block;">
+                                                            Escuchamos<br />tus ideas
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+
+                                        <!-- DIVISOR 1 -->
+                                        <td class="process-divider" width="1" style="width: 1px; background-color: #D6DCE5; height: 32px; font-size: 1px; line-height: 1px;">&nbsp;</td>
+
+                                        <!-- PROCESO 2: Analizamos tus necesidades (PICTOGRAMAS-07.png) -->
+                                        <td class="process-cell" align="center" valign="middle" style="padding: 4px 6px;">
+                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td valign="middle" style="padding-right: 8px;">
+                                                        <img src="assets/images/email/PICTOGRAMAS-07.png" alt="Analizamos" width="30" style="width: 30px; height: auto; display: block;" />
+                                                    </td>
+                                                    <td valign="middle" align="left">
+                                                        <span style="font-family: 'Parabolica', 'Poppins', sans-serif; font-size: 11.5px; line-height: 1.25; color: #111827; font-weight: 500; display: block;">
+                                                            Analizamos<br />tus necesidades
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+
+                                        <!-- DIVISOR 2 -->
+                                        <td class="process-divider" width="1" style="width: 1px; background-color: #D6DCE5; height: 32px; font-size: 1px; line-height: 1px;">&nbsp;</td>
+
+                                        <!-- PROCESO 3: Diseñamos soluciones (PICTOGRAMAS-08.png) -->
+                                        <td class="process-cell" align="center" valign="middle" style="padding: 4px 6px;">
+                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td valign="middle" style="padding-right: 8px;">
+                                                        <img src="assets/images/email/PICTOGRAMAS-08.png" alt="Diseñamos" width="32" style="width: 32px; height: auto; display: block;" />
+                                                    </td>
+                                                    <td valign="middle" align="left">
+                                                        <span style="font-family: 'Parabolica', 'Poppins', sans-serif; font-size: 11.5px; line-height: 1.25; color: #111827; font-weight: 500; display: block;">
+                                                            Diseñamos<br />soluciones
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+
+                                        <!-- DIVISOR 3 -->
+                                        <td class="process-divider" width="1" style="width: 1px; background-color: #D6DCE5; height: 32px; font-size: 1px; line-height: 1px;">&nbsp;</td>
+
+                                        <!-- PROCESO 4: Avanzamos juntos (PICTOGRAMAS-09.png) -->
+                                        <td class="process-cell" align="center" valign="middle" style="padding: 4px 6px;">
+                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td valign="middle" style="padding-right: 8px;">
+                                                        <img src="assets/images/email/PICTOGRAMAS-09.png" alt="Avanzamos" width="32" style="width: 32px; height: auto; display: block;" />
+                                                    </td>
+                                                    <td valign="middle" align="left">
+                                                        <span style="font-family: 'Parabolica', 'Poppins', sans-serif; font-size: 11.5px; line-height: 1.25; color: #111827; font-weight: 500; display: block;">
+                                                            Avanzamos<br />juntos
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <!-- ==================== ONDA RESPONSIVE (SOLO MÓVIL) ==================== -->
+                        <tr class="mobile-wave-container">
+                            <td style="padding: 0; line-height: 0; font-size: 0;">
+                                <svg viewBox="0 0 650 50" preserveAspectRatio="none" style="display: block; width: 100%; height: 32px; margin-bottom: -1px;">
+                                    <defs>
+                                        <linearGradient id="waveMobileGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stop-color="#03625f" />
+                                            <stop offset="45%" stop-color="#0d7a74" />
+                                            <stop offset="85%" stop-color="#6a7428" />
+                                            <stop offset="100%" stop-color="#947e1d" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path d="M0,25 C160,5 340,48 650,15 L650,50 L0,50 Z" fill="url(#waveMobileGrad)" />
+                                </svg>
+                            </td>
+                        </tr>
+
+                        <!-- ==================== FOOTER WAVE: CONOCE MÁS + SITIO WEB ==================== -->
+                        <tr>
+                            <td class="footer-cell-wrapper footer-padding" style="padding: 38px 45px 32px 45px;">
+                                <table role="presentation" class="footer-table" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <!-- TEXTO IZQUIERDA: CONOCE MÁS -->
+                                        <td align="left" valign="bottom" style="padding-right: 15px;">
+                                            <div style="font-family: 'Parabolica', 'Poppins', sans-serif; font-weight: 700; font-size: 15px; color: #FFFFFF; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 3px;">
+                                                CONOCE MÁS
+                                            </div>
+                                            <div style="font-family: 'Parabolica', 'Poppins', sans-serif; font-style: italic; font-weight: 400; font-size: 13px; line-height: 1.35; color: #FFFFFF; opacity: 0.95;">
+                                                sobre nuestros servicios y casos<br />de éxito en nuestro sitio web.
+                                            </div>
+                                        </td>
+
+                                        <!-- LÍNEA HORIZONTAL SEPARADORA (ALINEADA ABAJO SEGÚN MODELO) -->
+                                        <td class="footer-line" valign="bottom" style="padding: 0 15px 5px 15px;">
+                                            <div style="height: 1px; background-color: rgba(255, 255, 255, 0.65); min-width: 60px;"></div>
+                                        </td>
+
+                                        <!-- ENLACE DERECHA: COCOAPPSOLUTIONS.COM (ALINEADO ABAJO SEGÚN MODELO) -->
+                                        <td class="footer-link-cell" align="right" valign="bottom" style="white-space: nowrap; padding-bottom: 0px;">
+                                            <a href="https://cocoappsolutions.com" target="_blank" style="font-family: 'Parabolica', 'Poppins', sans-serif; font-style: italic; font-weight: 700; font-size: 14.5px; color: #FFFFFF; text-decoration: none; letter-spacing: 1px; display: inline-block; position: relative; top: 3.5px;">
+                                                COCOAPPSOLUTIONS.COM
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                    </table>
+                    <!-- /MAIN EMAIL CONTAINER -->
+
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+
+</html>
